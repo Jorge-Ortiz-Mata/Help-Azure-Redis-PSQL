@@ -1,16 +1,18 @@
 <%= turbo_stream_from @posts_channel %>
 
-<h1>Posts</h1>
+<section class="flex flex-col">
+  <h1>Posts</h1>
 
-<div>
-  <h3>New post</h3>
-  <%= render "form", post: @post %>
-</div>
+  <div>
+    <h3>New post</h3>
+    <%= render "form", post: @post %>
+  </div>
 
-<div id="posts">
-  <hr>
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <%= link_to "Show this post", post %>
-  <% end %>
-</div>
+  <div id="posts" class="flex flex-col">
+    <hr>
+    <% @posts.each do |post| %>
+      <%= render post %>
+      <%= link_to "Show this post", post %>
+    <% end %>
+  </div>
+</section>
