@@ -1,0 +1,16 @@
+<%= turbo_stream_from @posts_channel %>
+
+<h1>Posts</h1>
+
+<div>
+  <h3>New post</h3>
+  <%= render "form", post: @post %>
+</div>
+
+<div id="posts">
+  <hr>
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <%= link_to "Show this post", post %>
+  <% end %>
+</div>

@@ -12,6 +12,10 @@ RUN bundle install
 
 COPY . .
 
+RUN rails db:seed
+RUN rails tailwindcss:install
+RUN rails assets:precompile
+
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
